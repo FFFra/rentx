@@ -7,7 +7,6 @@ export function Home(){
   return(
     <Container>
       <Title>HOME</Title>
-
     </Container>
   );
 

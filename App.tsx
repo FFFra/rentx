@@ -8,15 +8,12 @@ import {
   Inter_500Medium,
   useFonts,
 } from '@expo-google-fonts/inter';
-import * as SplashScreen from 'expo-splash-screen';
-import React, { useCallback } from 'react';
+import React from 'react';
 import { View } from 'react-native';
 import { ThemeProvider } from 'styled-components';
 
 import { Home } from './src/screens/Home';
 import theme from './src/screens/Home/styles/theme';
-
-SplashScreen.preventAutoHideAsync();
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -27,15 +24,13 @@ export default function App() {
     Archivo_600SemiBold,
   });
 
-  const onLayoutRootView = useCallback(async () => {
-    if (fontsLoaded) {
-      await SplashScreen.hideAsync();
-    }
-  }, [fontsLoaded]);
+  if (!fontsLoaded) {
+    return null;
+  }
 
   return (
     <ThemeProvider theme={theme}>
-      <View onLayout={onLayoutRootView} style={{ flex: 1 }}>
+      <View style={{ flex: 1 }}>
         <Home />
       </View>
     </ThemeProvider>

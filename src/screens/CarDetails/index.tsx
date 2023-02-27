@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Acessory } from '../../components/Accessory';
 import { BackButton } from '../../components/BackButton';
+import { Button } from '../../components/Button';
 import { ImageSlider } from '../../components/ImageSlider';
 
 import SpeedSvg from '../../assets/speed.svg';
@@ -25,6 +26,7 @@ import {
   Price,
   About,
   Acessories,
+  Footer,
 } from './styles';
 
 export function CarDetails() {
@@ -63,6 +65,9 @@ export function CarDetails() {
           delectus, non autem!
         </About>
       </Content>
+      <Footer>
+        <Button title="Loren Ipsun" />
+      </Footer>
     </Container>
   );
 }

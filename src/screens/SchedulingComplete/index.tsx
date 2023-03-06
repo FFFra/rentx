@@ -4,7 +4,8 @@ import { useWindowDimensions } from 'react-native';
 import LogoSvg from '../../assets/logo_background_gray.svg';
 import DoneSvg from '../../assets/done.svg';
 
-import { Container, Content, Title, Message } from './styles';
+import { Container, Content, Title, Message, Footer } from './styles';
+import { ConfirmButton } from '../../components/ConfirmButton';
 
 export function SchedulingComplete() {
   const { width } = useWindowDimensions();
@@ -17,6 +18,9 @@ export function SchedulingComplete() {
         <Title>Your car has been rented!</Title>
         <Message>Enjoy your trip!</Message>
       </Content>
+      <Footer>
+        <ConfirmButton title="OK" />
+      </Footer>
     </Container>
   );
 }

@@ -17,6 +17,7 @@ export const Title = styled.Text`
   font-size: ${RFValue(30)}px;
   color: ${({ theme }) => theme.colors.shape};
   font-family: ${({ theme }) => theme.fonts.secondary_600};
+  text-align: center;
 
   margin-top: 40px;
 `;
@@ -29,4 +30,11 @@ export const Message = styled.Text`
   text-align: center;
 
   margin-top: 16px;
+`;
+
+export const Footer = styled.View`
+  width: 100%;
+  align-items: center;
+
+  margin: 80px 0;
 `;

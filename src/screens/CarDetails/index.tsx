@@ -28,8 +28,15 @@ import {
   Acessories,
   Footer,
 } from './styles';
+import { useNavigation } from '@react-navigation/native';
 
 export function CarDetails() {
+  const navigation = useNavigation();
+
+  function handleConfirmRental() {
+    navigation.navigate('Scheduling');
+  }
+
   return (
     <Container>
       <Header>
@@ -66,7 +73,7 @@ export function CarDetails() {
         </About>
       </Content>
       <Footer>
-        <Button title="Loren Ipsun" />
+        <Button title="Choose rent period" onPress={handleConfirmRental} />
       </Footer>
     </Container>
   );

@@ -1,3 +1,4 @@
+import 'react-native-gesture-handler';
 import {
   Archivo_400Regular,
   Archivo_500Medium,
@@ -13,8 +14,9 @@ import React from 'react';
 import { View } from 'react-native';
 import { ThemeProvider } from 'styled-components';
 
-import { Scheduling } from './src/screens/Scheduling';
 import theme from './src/screens/Home/styles/theme';
+
+import { Routes } from './src/routes';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -32,7 +34,7 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <View style={{ flex: 1 }}>
-        <Scheduling />
+        <Routes />
       </View>
     </ThemeProvider>
   );

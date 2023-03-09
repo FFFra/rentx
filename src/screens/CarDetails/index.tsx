@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Acessory } from '../../components/Accessory';
+import { Accessory } from '../../components/Accessory';
 import { BackButton } from '../../components/BackButton';
 import { Button } from '../../components/Button';
 import { ImageSlider } from '../../components/ImageSlider';
@@ -67,7 +67,7 @@ export function CarDetails() {
         </Details>
         <Accessories>
           {car.accessories.map((accessory) => (
-            <Acessory
+            <Accessory
               key={accessory.type}
               name={accessory.name}
               icon={getAccessoryIcons(accessory.type)}

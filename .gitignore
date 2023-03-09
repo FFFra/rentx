@@ -56,3 +56,6 @@ dist/
 
 # VSCode
 **/.vscode/
+
+# local server
+src/services/server.json

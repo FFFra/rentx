@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { StatusBar } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import { Ionicons, AntDesign } from '@expo/vector-icons';
 
 import { RFValue } from 'react-native-responsive-fontsize';
 
@@ -32,6 +32,10 @@ export function Home() {
 
   function handleCarDetails(car: CarDTO) {
     navigation.navigate('CarDetails', { car });
+  }
+
+  function handleOpenMyCars() {
+    navigation.navigate('MyCars');
   }
 
   useEffect(() => {
@@ -76,7 +80,7 @@ export function Home() {
         />
       )}
 
-      <MyCarsButton>
+      <MyCarsButton onPress={handleOpenMyCars}>
         <Ionicons name="ios-car-sport" size={32} color={theme.colors.shape} />
       </MyCarsButton>
     </Container>

@@ -91,11 +91,10 @@ export function CarDetails() {
           { backgroundColor: theme.colors.background_secondary },
         ]}
       >
-        <Header>
-          <BackButton onPress={handleBack} />
-        </Header>
-
         <Animated.View style={slideCarStyleAnimation}>
+          <Header>
+            <BackButton onPress={handleBack} hitSlop={52} />
+          </Header>
           <CarImages>
             <ImageSlider imagesUrl={car.photos} />
           </CarImages>

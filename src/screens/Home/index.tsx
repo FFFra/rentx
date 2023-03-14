@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { StatusBar } from 'react-native';
+import { StatusBar, StyleSheet, BackHandler } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 import Animated, {
@@ -20,12 +20,11 @@ import { api } from '../../services/api';
 import { CarDTO } from '../../dtos/CarDTO';
 
 import { useNavigation } from '@react-navigation/native';
-import { Load } from '../../components/Load';
+import { LoadAnimated } from '../../components/LoadAnimated';
 
 import { Container, Header, TotalCars, HeaderContent, CarList } from './styles';
 import { useTheme } from 'styled-components';
 import { RectButton, PanGestureHandler } from 'react-native-gesture-handler';
-import { StyleSheet } from 'react-native';
 
 export function Home() {
   const [cars, setCars] = useState<CarDTO[]>([]);
@@ -89,6 +88,11 @@ export function Home() {
     fetchCars();
   }, []);
 
+  useEffect(() => {
+    // handle back button from device
+    BackHandler.addEventListener('hardwareBackPress', () => true);
+  }, []);
+
   return (
     <Container>
       <StatusBar
@@ -99,12 +103,12 @@ export function Home() {
       <Header>
         <HeaderContent>
           <Logo width={RFValue(108)} height={RFValue(12)} />
-          <TotalCars> {cars.length} cars available</TotalCars>
+          {!loading && <TotalCars> {cars.length} cars available</TotalCars>}
         </HeaderContent>
       </Header>
 
       {loading ? (
-        <Load />
+        <LoadAnimated />
       ) : (
         <CarList
           data={cars}
